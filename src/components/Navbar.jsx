@@ -6,8 +6,8 @@ import { IoIosLogOut, IoMdClose } from "react-icons/io";
 
 const pages = [
   { title: "Books", url: "/" },
-  { title: "About", url: "/about" },
-  { title: "Contact", url: "/contact" },
+  { title: "About", url: "#about" },
+  { title: "Contact", url: "#contact" },
 ];
 
 const Navbar = () => {
@@ -42,7 +42,7 @@ const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
 
   return (
-    <header className="bg-teal-500">
+    <header className="bg-teal-500 z-[999]">
       <div className="container flex justify-start items-center relative">
         <nav className="flex items-center justify-between p-4 w-full">
           <NewspaperIcon className="hidden md:flex text-black text-2xl md:text-4xl" />

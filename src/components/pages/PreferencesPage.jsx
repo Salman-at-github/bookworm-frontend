@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PreferencesSelection from '../PreferencesSelection';
 import { useShowToast } from '../../hooks/showToastHook';
+import { useNavigate } from 'react-router-dom';
 
 const PreferencesPage = () => {
   const [initialPreferences, setInitialPreferences] = useState({
     preferredAuthors: [],
     preferredGenres: [],
   });
+  const navigateTo = useNavigate()
 
+  useEffect(()=>{
+    if(!localStorage.getItem('token')){
+      navigateTo("/login")
+        
+    }
+  })
   const showToast = useShowToast();
 
   const handleSavePreferences = async (preferences) => {

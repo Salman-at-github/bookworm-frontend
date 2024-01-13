@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PreferredBooks = () => {
   const [books, setBooks] = useState([]);
-
+  const navigateTo = useNavigate()
   useEffect(() => {
+    if(!localStorage.getItem('token')){
+      navigateTo("/login")
+    }
     const fetchPreferredBooks = async () => {
       try {
         const token = localStorage.getItem('token'); // Assuming you store the token in localStorage
